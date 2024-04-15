@@ -1,0 +1,245 @@
+JAVASCRIPT 24 days of code
+Q - Remove Duplicate characters from String
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr=new int[26];
+		String str="abcdssrewsdewwb";
+		String str2 = "";
+		for (int i=0;i<str.length();i++){
+		    if(arr[Character.toLowerCase(str.charAt(i))-'a']>0){
+		        continue;
+		    }else{
+		        arr[Character.toLowerCase(str.charAt(i))-'a']+=1;
+		        str2+=str.charAt(i);
+		    }
+		}
+		System.out.println(str2);
+	}
+}
+
+
+Remove Duplicate characters from array of element and find the count of an elements using set
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Set<Character> s=new HashSet<Character>();
+		String str="abcdssrewsdewwb";
+		String str2 = "";
+		for (int i=0;i<str.length();i++){
+		    if(s.contains(str.charAt(i))){
+		        continue;
+		    }else{
+		        s.add(str.charAt(i));
+		        str2+=str.charAt(i);
+		    }
+		}
+		System.out.println(str2);
+	}
+}
+Remove Duplicate characters from array of element using filter
+String reverse without reversing of individual words (Array of elements can be reverse with reverse() method but for string it is won't possible so required to split and then join.
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String str="This is a String";
+		String str2 = "";
+		str+='.';
+		int n=1;
+		for (int i=0;i<str.length();i++){
+		    if(str.charAt(i)==' '){
+		        n+=1;
+		    }
+		}
+		String[] arr=new String[n];
+		String temp="";
+		int j=0;
+		for (int i=0;i<str.length();i++){
+		    if(str.charAt(i)==' ' || str.charAt(i)=='.'){
+		        temp+=" ";
+		        arr[j]=temp;
+		        temp="";
+		        j++;
+		    }else{
+		        temp+=str.charAt(i);
+		    }
+		}
+		for (int i=0;i<arr.length;i++){
+		    str2 +=arr[arr.length-1-i];
+		}
+		System.out.println(str2);
+	}
+}
+
+String reverse with reversing of individual words
+public class Main
+{
+	public static void main(String[] args) {
+		String str="this is a string";
+		String str2="";
+		for (int i=0;i<str.length();i++){
+		    str2+=str.charAt(str.length()-1-i);
+		}
+		System.out.println(str2);
+	}
+}
+String reverse without using inbult function
+Find factorial of user input number
+public class Main
+{
+	public static void main(String[] args) {
+		int x=6;
+		int res=1;
+		for (int i=x;i>0;i--){
+		    res*=i;
+		}
+		System.out.println(res);
+	}
+}
+Check if a string is an Anagram
+public class Main
+{
+	public static void main(String[] args) {
+		String s1="abcdefg";
+		String s2="dcfgabe";
+		boolean isAnagram = true;
+		int[] arr= new int[26];
+		if(s1.length()!=s2.length()){
+		    System.out.println("not anagram");
+		}else{
+		    for (int i=0;i<s1.length();i++){
+		        arr[s1.charAt(i)-'a']+=1;
+		        arr[s2.charAt(i)-'a']-=1;
+		    }
+		    for (int i=0;i<arr.length;i++){
+		        if(arr[i]!=0){
+		            isAnagram=false;
+		            break;
+		        }else{
+		            isAnagram=true;
+		        }
+		    }
+		}
+		if(isAnagram){
+		    System.out.println("is anagram");
+		}else{
+		    System.out.println("not anagram");
+		}
+	}
+}
+Swapping of 2 numbers with third variable
+public class Main
+{
+	public static void main(String[] args) {
+		int a=5;
+		int b=9;
+		int c=a;
+		a=b;
+		b=c;
+		System.out.println(a);
+		System.out.println(b);
+	}
+}
+Swapping of 2 numbers without third variable
+
+Swapping of 2 numbers without third variable
+public class Main
+{
+	public static void main(String[] args) {
+		int a=9;
+		int b=4;
+		a=a+b;
+		b=a-b;
+		a=a-b;
+		System.out.println(a+" "+b);
+	}
+}
+
+To check the string or number is palindrome or not( ex: 121,madam,anna) using reverse method
+public class Main
+{
+	public static void main(String[] args) {
+		String str1="abcdcba";
+		String str2="";
+		boolean isPal=true;
+		for (int i=0;i<str1.length();i++){
+		    str2+=str1.charAt(str1.length()-1-i);
+		}
+		if(str1.equals(str2)){
+		    System.out.println("palindrome");
+		}else{
+		    System.out.println("not palindrome");
+		}
+	}
+}
+To check the string or number is palindrome or not( ex: 121,madam,anna) using diving length by 2 and then comparing
+
+public class Main
+{
+	public static void main(String[] args) {
+		String str="abcdcba";
+		boolean isPal=true;
+		for (int i=0;i<(str.length()/2)+1;i++){
+		    if(str.charAt(i)!=str.charAt(str.length()-1-i)){
+		        isPal=false;
+		        break;
+		    }
+		}
+		if(isPal){
+		    System.out.println("palindrome");
+		}else{
+		    System.out.println("not palindrome");
+		}
+	}
+}
+
+To find longest word from a string using (for of Loop) means iterate by an elements not by indexing
+public class Main
+{
+	public static void main(String[] args) {
+		String str1="this is a string of length 7 char";
+		str1+=".";
+		int max=-1;
+		int count=0;
+		String str2="";
+		String res="";
+		for (int i=0;i<str1.length();i++){
+		    if(str1.charAt(i)==' ' || str1.charAt(i)=='.'){
+		        if(count>max){
+		            max=count;
+		            res=str2;
+		        }
+		        count=0;
+		        str2="";
+		    }
+		    else{
+		        count+=1;
+		        str2+=str1.charAt(i);
+		    }
+		}
+		System.out.println(res);
+	}
+}
+
+Or
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String str="this is a string";
+		int max=-1;
+		String res="";
+		StringTokenizer st1=new StringTokenizer(str," ");
+		while(st1.hasMoreTokens()){
+		    String str2=st1.nextToken();
+		    if(str2.length()>max){
+		        max=str2.length();
+		        res=str2;
+		    }
+		}
+		System.out.println(res);
+	}
+}
