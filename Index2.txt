@@ -1,0 +1,114 @@
+To find longest word from a string using custom code
+To find longest common string from array of strings
+To find vowels and its count in a given string
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str="abcde";
+	    int count=0;
+	    for (int i=0;i<str.length();i++){
+	        if(Character.toLowerCase(str.charAt(i))=='a' || Character.toLowerCase(str.charAt(i))=='e' || Character.toLowerCase(str.charAt(i))=='i'	        || Character.toLowerCase(str.charAt(i)) =='o' || Character.toLowerCase(str.charAt(i))=='u'){
+	            count++;
+	        }
+	    }
+	    System.out.println(count);
+	}
+}
+To find character occurance from the string
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str="abcde";
+    	char[] chars=new char[26];
+	    int[] count=new int[26];
+	    for (int i=0;i<str.length();i++){
+	        count[str.charAt(i)-'a']++;
+	        chars[str.charAt(i)-'a']=str.charAt(i);
+	    }
+	    System.out.println(Arrays.toString(chars));
+	    System.out.println(Arrays.toString(count));
+	}
+}
+Day 5
+To find a first pair from a number array whose sum is zero
+Find all possible pairs from a number array which some is zero.
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int target = 9;
+	    int[] arr={1,2,3,4,5,6,7,8,9,0};
+	    for (int i=0;i<arr.length;i++){
+	        for (int j=0;j<arr.length;j++){
+	            if(arr[i]+arr[j]==target){
+	                System.out.println(arr[i]+" "+arr[j]);
+	                break; //comment for all pairs
+	            }
+	        }
+	    }
+	    //or 
+	    int target = 9;
+	    int[] arr={1,2,3,4,5,6,7,8,9,0};
+	    Arrays.sort(arr);
+	    for (int i=0;i<arr.length;i++){
+            if(arr[i]+arr[arr.length-1-i]==target){
+                System.out.println(arr[i]+" "+arr[arr.length-1-i]);
+                break; //comment for all pairs
+            }
+        }
+	}
+}
+To find a first pair from a number array whose sum is zero using indexing
+To find the largest pair of the 2 elements using indexing with unsorted elements
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr={1,2,3,4,5,6,7,8,9,0};
+	    int max=-1;
+	    int[] res=new int[3];
+	    for (int i=0;i<arr.length;i++){
+	       for (int j=i+1;j<arr.length;j++){
+	           if(arr[i]+arr[j]>max){
+	               max=arr[i]+arr[j];
+	               res[0]=max;
+	               res[1]=arr[i];
+	               res[2]=arr[j];
+	           }
+	       }
+	    }
+	    System.out.println(Arrays.toString(res));
+	}
+}
+Day 6
+To find the largest pair of the 2 elements using indexing with sorted elements
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr={1,2,3,4,5,6,7,8,9,10};
+	    System.out.println(arr[arr.length-2]+" "+arr[arr.length-1]+ " = "+(arr[arr.length-1]+arr[arr.length-2]));
+	}
+}
+To find the index of an element from an array
+Fibonacci Series (0,1,1,2,3,5,8,13....)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int n = 9;
+	    int[] arr= new int[n];
+	    if(n>0){
+	        arr[0]=0;
+	    }
+	    if(n>1){
+	        arr[1]=1;
+	    }
+	    for (int i=2;i<n;i++){
+	        arr[i]=arr[i-1]+arr[i-2];
+	    }
+	    System.out.println(Arrays.toString(arr));
+	}
+}
