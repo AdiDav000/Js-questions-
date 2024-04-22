@@ -1,0 +1,112 @@
+Fibonacci Series (0,1,1,2,3,5,8,13....) where keeping in array
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int n = 8;
+        int[] arr=new int[n];
+        arr[0] = 0;
+        arr[1] = 1;
+        for (int i=2;i<n;i++) {
+            arr[i]=arr[i-1] + arr[i-2];
+        }
+        System.out.println(Arrays.toString(arr));
+	}
+}
+Finding a missing elements in an array and then add with existing elements.
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr={0,1,2,3,5,8,13};
+		Queue<Integer> q=new LinkedList<>();
+        boolean found = false;
+        for (int i=0;i<arr.length;i++) {
+            if (arr[i] != i) {
+                for (int j=i;j<=arr[i];j++){
+                    q.add(j);
+                }
+                i++;
+                found = true;
+            }else{
+                q.add(arr[i]);
+            }
+        }
+        System.out.println(Arrays.toString(q.toArray()));
+	}
+}
+
+Sorting of a string/characters
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String str="bacswdwdfezz";
+        char[] arr=str.toCharArray();
+        for (int i=0;i<arr.length-1;i++) {
+            for (int j=i+1;j<arr.length;j++) {
+                if (arr[i]>arr[j]) {
+                    char temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        str="";
+        for (int i=0;i<arr.length;i++){
+            str+=arr[i];
+        }
+        System.out.println(str);
+	}
+}
+
+Sorting of a number array with or without inbuilt methods
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr={9,2,42,1,5};
+        for (int i=0;i<arr.length-1; i++) {
+            for (int j=0;j<arr.length-i-1;j++) {
+                if (arr[j]>arr[j+1]) {
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+	}
+}
+To check if given number is prime or not
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int n=22;
+		boolean prime=true;
+        if (n<= 1){
+            prime=false;
+        } 
+        else{
+            for(int i=2;i<=Math.sqrt(n);i++){
+                if (n%i==0){
+                    prime=false;
+                    break;
+                }
+            }
+        }
+         System.out.println(prime? "prime":"not prime");
+	}
+}
+
+To print all the numbers from 2 to 100
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		for (int i=2;i<=100;i++){
+            System.out.println(i);
+		}
+	}
+}
