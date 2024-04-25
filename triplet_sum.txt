@@ -20,3 +20,82 @@ public class Main
 		}
 	}
 }
+
+Spiral matrix
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        LinkedList<Integer> ll=new LinkedList<>();
+        int l=0, r=matrix[0].length-1,t=0,b=matrix.length-1;
+        while(l<=r && t<=b){
+            for (int i=l;i<=r;i++){
+                ll.add(matrix[t][i]);
+            }
+            t++;
+            for (int i=t;i<=b;i++){
+                ll.add(matrix[i][r]);
+            }
+            r--;
+            if(t<=b){
+            for (int i=r;i>=l;i--){
+                ll.add(matrix[b][i]);
+            }
+            b--;}
+            if(l<=r){
+            for (int i=b;i>=t;i--){
+                ll.add(matrix[i][l]);
+            }
+            l++;}
+        }
+        return ll;
+    }
+}
+
+Integer to Roman
+
+class Solution {
+    public String intToRoman(int num) {
+        HashMap<Integer, Character> map=new HashMap<>();
+        String str="";
+        map.put(1, 'I');
+        map.put(5,'V');
+        map.put(10,'X');
+        map.put(50,'L');
+        map.put(100,'C');
+        map.put(500,'D');
+        map.put(1000,'M');
+        int[] arr={1,5,10,50,100,500,1000};
+        while(num>0){
+            int min=Integer.MAX_VALUE;
+            int max=-1;
+            for (int i=0;i<arr.length;i++){
+                if(i%2==0 && num/arr[i] < min && num/arr[i] >= 1){
+                    min=num/arr[i];
+                    max=i;
+                }
+            }
+            if(min==9){
+                str+=map.get(arr[max]);
+                str+=map.get(arr[max+2]);
+            }else if(min>=5 && min<9){
+                str+=(char)map.get(arr[max+1]);
+                for (int i=0;i<min-5;i++){
+                    str+=(char)map.get(arr[max]);
+                }
+            }
+            else if(min==4){
+                str+=(char)map.get(arr[max]);
+                str+=(char)map.get(arr[max+1]);
+            }
+            else{
+                for (int i=0;i<min;i++){
+                    str+=(char)map.get(arr[max]);
+                }
+            }
+            num=num%arr[max];
+            System.out.println(str);
+        }
+        return str;
+    }
+}
+
